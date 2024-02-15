@@ -17,5 +17,5 @@ export async function GET(request) {
   }
 
   const user = await User.findById(data._id).select("-password");
-  return NextResponse.json(user);
+  return NextResponse.status(200).json(user);
 }
