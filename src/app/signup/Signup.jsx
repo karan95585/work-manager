@@ -4,7 +4,12 @@ import signUpBanner from "../../assets/singup.svg";
 import Image from "next/image";
 import { toast } from "react-toastify";
 import { signUp } from "@/services/userService";
+import { useRouter } from 'next/router'
+
+
+
 const Signup = () => {
+
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -15,6 +20,9 @@ const Signup = () => {
   });
 
   const doSignup = async (event) => {
+
+    // const router = useRouter();
+
     event.preventDefault();
 
     console.log(event);
@@ -37,7 +45,14 @@ const Signup = () => {
 
       toast.success("User is registered !!", {
         position: "top-center",
+       
       });
+       // Redirect to login page after successful signup
+
+      
+
+
+
       setData({
         name: "",
         email: "",
@@ -91,7 +106,7 @@ const Signup = () => {
               </label>
               <input
                 type="text"
-                className="w-full p-3 rounded-2xl bg-gray-800 focus:ring-gray-400-100 border border-gray-800"
+                className="w-full p-3 rounded-2xl bg-white-800 focus:ring-white-400-100 border border-white-800"
                 placeholder="Enter here"
                 name="user_name"
                 onChange={(event) => {
@@ -113,7 +128,7 @@ const Signup = () => {
               </label>
               <input
                 type="email"
-                className="w-full p-3 rounded-2xl bg-gray-800 focus:ring-gray-400-100 border border-gray-800"
+                className="w-full p-3 rounded-2xl bg-white-800 focus:ring-white-400-100 border border-white-800"
                 placeholder="Enter here"
                 id="user_email"
                 name="user_email"
@@ -136,7 +151,7 @@ const Signup = () => {
               </label>
               <input
                 type="password"
-                className="w-full p-3 rounded-2xl bg-gray-800 focus:ring-gray-400-100 border border-gray-800"
+                className="w-full p-3 rounded-2xl bg-white-800 focus:ring-white-400-100 border border-white-800"
                 placeholder="Enter here"
                 id="user_password"
                 onChange={(event) => {
@@ -157,7 +172,7 @@ const Signup = () => {
                 About
               </label>
               <textarea
-                className="w-full p-3 rounded-2xl bg-gray-800 focus:ring-gray-400-100 border border-gray-800"
+                className="w-full p-3 rounded-2xl bg-white-800 focus:ring-white-400-100 border border-white-800"
                 placeholder="Enter here"
                 id="user_about"
                 name="user_about"

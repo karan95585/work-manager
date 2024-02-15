@@ -7,6 +7,9 @@ import { toast } from "react-toastify";
 
 const ShowTasks = () => {
   const [tasks, setTasks] = useState([]);
+  const [loading,setloading]=useState(true);
+
+
   const context = useContext(UserContext);
   async function loadTasks(userId) {
     try {
@@ -15,6 +18,9 @@ const ShowTasks = () => {
       console.log(tasks);
     } catch (error) {
       console.log(error);
+    }
+    finally{
+      setloading(false)
     }
   }
 
@@ -35,11 +41,18 @@ const ShowTasks = () => {
       console.log(error);
       toast.error("Error in deleting task !!");
     }
+    
   }
 
   return (
     <div className="grid grid-cols-12 mt-3">
-      <div className="col-span-6 col-start-4">
+      
+
+
+      {
+        loading ? (<div className={"skeleton  col-span-6 col-start-4"}>
+        </div>)
+        :(<div className={"skeleton  col-span-6 col-start-4"}>
         <h1 className="text-3xl mb-3 ">Your tasks ( {tasks.length} )</h1>
 
         {tasks.map((task) => (
@@ -49,7 +62,7 @@ const ShowTasks = () => {
             deleteTaskParent={deleteTaskParent}
           />
         ))}
-      </div>
+      </div>)}
     </div>
   );
 };

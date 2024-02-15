@@ -12,7 +12,7 @@ const Task = ({ task, deleteTaskParent }) => {
   return (
     <div
       className={` shadow-lg mt-2 rounded-md ${
-        task.status == "completed" ? "bg-green-800" : "bg-gray-800"
+        task.status == "completed" ? "bg-green-800" : "bg-white-800"
       }`}
     >
       <div className="p-5">
@@ -22,7 +22,7 @@ const Task = ({ task, deleteTaskParent }) => {
             onClick={() => {
               deleteTask(task._id);
             }}
-            className="shadow-lg hover:bg-gray-900 bg-gray-950 rounded-full w-9 h-9 flex justify-center items-center cursor-pointer "
+            className="shadow-lg hover:bg-white-900 bg-white-950 rounded-full w-9 h-9 flex justify-center items-center cursor-pointer "
           >
             <RxCross1 />
           </span>
